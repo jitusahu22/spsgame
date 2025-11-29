@@ -1,0 +1,317 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* blue gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Header styling */
+h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #ff6a00, #ee0979); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Main container: scores left-right, center content in middle */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1000px; /* center the content */
+  margin-top: 2rem;
+}
+
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 100px;
+}
+
+.score p:first-child {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.score p:last-child {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* Hover effect */
+.score:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+/* Left and right specific gradients */
+.score.left {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+.score.right {
+  background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+}
+
+/* Center content */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 400px;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Choices */
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.choice {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.choice:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #081b31;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choice.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.choice img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.last-choice-card {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.last-choice-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 5px;
+}
+
+.last-choice-card h4 {
+  font-size: 0.8rem;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+/* Hover effect for last choice card */
+.last-choice-card:hover {
+  transform: scale(1.1);
+}
+/* Message */
+.msg-container {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 50px;
+}
+#msg {
+  background-color: #352f44;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Last choices */
+.last-choices {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.last-choices img {
+  height: 80px;
+  width: 80px;
+}
+
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-card {
+  background: white;
+  color: black;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  animation: scaleUp 0.3s ease-in-out;
+}
+.popup-card h2 {
+  margin-bottom: 10px;
+}
+.popup-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.score-anim {
+  animation: scaleUp 0.5s ease;
+}
+
+/* Score animation */
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+.score-anim {
+  animation: scaleUp 0.5s ease;
+}
+
+/* Score container (score + last choice) */
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Score cards */
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  min-width: 100px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.score.right { background: linear-gradient(135deg, #fc5c7d, #6a82fb); }
+.score p:first-child { font-size: 3rem; font-weight: bold; margin:0; }
+.score p:last-child { font-size: 1.2rem; margin-top: 5px; }
+
+/* Last choice card styling */
+.last-choice-card {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.last-choice-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 5px;
+}
+.last-choice-card h4 {
+  font-size: 0.8rem;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+.last-choice-card:hover { transform: scale(1.1); }
+
+/* Choice click animation */
+@keyframes choiceScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.choice-anim {
+  animation: choiceScale 0.3s ease;
+}
+
+/* Score animation */
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+.score-anim {
+  animation: scaleUp 0.5s ease;
+}
