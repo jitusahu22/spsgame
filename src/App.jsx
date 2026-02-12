@@ -158,7 +158,7 @@ function App() {
           <div className="popup-card">
             <h2>{message}</h2>
             <p><b>Final Score:</b> You {userScore} - {compScore} Computer</p>
-            <button onClick={resetGame}>Play Again</button>
+            <button onClick={resetGame}>Play Again..........................</button>
           </div>
         </div>
       )}
