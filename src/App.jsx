@@ -35,7 +35,7 @@ function App() {
   };
 
   const drawGame = () => {
-    setMessage("🤝 Game was draw, Play Again.");
+    setMessage("Game was draw, Play Again.");
     setMsgColor("#352f44");
   };
 
@@ -44,13 +44,13 @@ function App() {
       setUserScore((prev) => prev + 1);
       setUserAnim(true);
       playSound(winSound);
-      setMessage(`🎉 You Win! Your ${userChoice} beats ${compChoice}`);
+      setMessage(` You Win! Your ${userChoice} beats ${compChoice}`);
       setMsgColor("green");
     } else {
       setCompScore((prev) => prev + 1);
       setCompAnim(true);
       playSound(loseSound);
-      setMessage(`💻 You Lose! ${compChoice} beats your ${userChoice}`);
+      setMessage(` You Lose! ${compChoice} beats your ${userChoice}`);
       setMsgColor("red");
     }
   };
@@ -79,7 +79,7 @@ function App() {
 
   useEffect(() => {
     if (userScore === 5 || compScore === 5) {
-      setMessage(userScore === 5 ? "🏆 You are the Champion!" : "💻 Computer Wins the Match!");
+      setMessage(userScore === 5 ? " You are the Champion!" : "💻 Computer Wins the Match!");
       setMsgColor(userScore === 5 ? "green" : "red");
       setGameOver(true);
       setShowPopup(true);
